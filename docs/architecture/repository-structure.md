@@ -204,7 +204,7 @@ Complete monorepo layout with every component documented.
 │   ├── security-scan.yml             # Security scanning
 │   └── ... (37 more workflows)
 │
-├── CLAUDE.md                         # Root: AI agent instructions (32 principles)
+├── CLAUDE.md                         # Root: AI agent instructions (engineering principles)
 ├── PORTS.md                          # Port assignments (SSOT)
 ├── STATUS.md                         # Platform status (auto-generated)
 ├── turbo.json                        # Turborepo build config
@@ -216,7 +216,7 @@ Complete monorepo layout with every component documented.
 
 | File                              | Why It Matters                                                 |
 | --------------------------------- | -------------------------------------------------------------- |
-| `CLAUDE.md`                       | The brain — all 32 principles, tool configs, workflow patterns |
+| `CLAUDE.md`                       | The brain — engineering principles, tool configs, workflow patterns |
 | `.claude/CLAUDE.md`               | Session startup rituals, parallel universe prevention          |
 | `.claude/skills/skill-rules.json` | Automated skill activation rules                               |
 | `.claude/agents/*.md`             | Agent specialization definitions                               |

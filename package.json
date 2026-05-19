@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Portable AI Coding Engine — Build enterprise-grade SaaS platforms across any industry with autonomous AI agents, self-healing CI/CD, 3-tier memory, and compliance-by-design",
+  "description": "Portable AI coding engine \u2014 reference scaffold for building compliance-by-design SaaS platforms. Documentation, examples, and playbooks. Apache-2.0.",
   "keywords": [
     "coding-engine",
     "ai-agents",
