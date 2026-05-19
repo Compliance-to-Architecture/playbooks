@@ -1,0 +1,72 @@
+{
+  "name": "@iof/code-engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Portable AI Coding Engine — Build enterprise-grade SaaS platforms across any industry with autonomous AI agents, self-healing CI/CD, 3-tier memory, and compliance-by-design",
+  "keywords": [
+    "coding-engine",
+    "ai-agents",
+    "claude-code",
+    "enterprise-saas",
+    "self-healing",
+    "compliance",
+    "multi-tenant",
+    "failure-pipeline",
+    "memory-system"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "coding-engine": "./dist/cli.js"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./memory": "./dist/core/memory/memory-system.js",
+    "./pipeline": "./dist/core/failure-pipeline/pipeline.js",
+    "./metrics": "./dist/core/engine-metrics/metrics.js",
+    "./plugins": "./dist/core/plugin-api/registry.js",
+    "./session": "./dist/core/session/session-manager.js",
+    "./code-mode": "./dist/core/code-mode/code-mode-plugin.js",
+    "./storage": "./dist/core/storage/storage-adapter.js",
+    "./lru-cache": "./dist/core/storage/lru-cache.js",
+    "./compliance": "./dist/core/compliance/compliance-engine.js",
+    "./orchestrator": "./dist/core/orchestrator/agent-orchestrator.js",
+    "./watchdog": "./dist/core/watchdog/health-monitor.js",
+    "./postgresql": "./dist/core/storage/postgresql-adapter.js",
+    "./webhook": "./dist/core/webhook/webhook-dispatcher.js",
+    "./auth": "./dist/core/auth/auth-middleware.js",
+    "./server": "./dist/core/server/http-server.js",
+    "./shutdown": "./dist/core/lifecycle/graceful-shutdown.js",
+    "./llm": "./dist/core/llm/llm-adapter.js",
+    "./runtime": "./dist/core/runtime/agent-daemon.js",
+    "./loop": "./dist/core/runtime/execution-loop.js"
+  },
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "tsc && vitepress build docs",
+    "preview": "vitepress preview docs",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "typecheck": "tsc --noEmit",
+    "init": "tsx init/bootstrap.ts",
+    "lint": "eslint .",
+    "serve": "node dist/core/runtime/agent-daemon.js"
+  },
+  "optionalDependencies": {
+    "@utcp/code-mode": "^1.2.11",
+    "ioredis": "^5.10.1",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.15",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitepress": "^1.6.4",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "Apache-2.0"
+}

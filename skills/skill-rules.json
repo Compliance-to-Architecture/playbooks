@@ -1,0 +1,539 @@
+{
+  "$schema": "coding-engine-skill-rules-v1",
+  "description": "Portable skill activation rules — domain-agnostic engine skills",
+  "skills": {
+    "stripe-billing": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["stripe", "billing", "payment", "invoice", "subscription", "charge", "refund"] }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/billing*/**" },
+        { "pathPattern": "**/stripe*/**" }
+      ],
+      "skillFile": "skills/stripe-billing.md"
+    },
+    "payments-processing": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["payment", "checkout", "transaction", "refund", "payout", "settlement", "PSP"] }
+      ],
+      "skillFile": "skills/payments-processing.md"
+    },
+    "subscription-management": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["subscription", "plan", "tier", "upgrade", "downgrade", "trial", "churn", "MRR", "ARR"] }
+      ],
+      "skillFile": "skills/subscription-management.md"
+    },
+    "marketplace-payments": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["marketplace", "connect", "platform-fee", "split-payment", "seller", "vendor", "commission", "escrow"] }
+      ],
+      "skillFile": "skills/marketplace-payments.md"
+    },
+    "saas-billing": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["billing", "revenue", "pricing", "quota", "metering", "overage", "dunning", "tax", "coupon"] }
+      ],
+      "skillFile": "skills/saas-billing.md"
+    },
+    "multi-tenancy": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["tenant", "multi-tenant", "isolation", "workspace", "RLS", "subdomain", "organization"] }
+      ],
+      "skillFile": "skills/multi-tenancy.md"
+    },
+    "api-design": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["api", "endpoint", "route", "openapi", "swagger", "sdk", "rest", "webhook", "rate-limit"] }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/routes/**" },
+        { "pathPattern": "**/openapi*" }
+      ],
+      "skillFile": "skills/api-design.md"
+    },
+    "authentication-authorization": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["auth", "login", "signup", "jwt", "oauth", "sso", "saml", "rbac", "abac", "permission", "role", "mfa"] }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/auth*/**" }
+      ],
+      "skillFile": "skills/authentication-authorization.md"
+    },
+    "compliance-framework": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["compliance", "SOC2", "GDPR", "HIPAA", "PCI", "audit", "regulation", "privacy", "evidence"] }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/compliance*/**" },
+        { "pathPattern": "**/audit*/**" }
+      ],
+      "skillFile": "skills/compliance-framework.md"
+    },
+    "observability-monitoring": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["logging", "monitoring", "tracing", "metrics", "alerting", "health-check", "observability", "dashboard"] }
+      ],
+      "skillFile": "skills/observability-monitoring.md"
+    },
+    "infrastructure": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["deploy", "docker", "kubernetes", "terraform", "ci/cd", "ecs", "cloudflare", "helm", "pipeline"] }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/Dockerfile" },
+        { "pathPattern": "**/*.tf" },
+        { "pathPattern": ".github/workflows/**" }
+      ],
+      "skillFile": "skills/infrastructure.md"
+    },
+    "testing-patterns": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["test", "e2e", "integration", "unit", "coverage", "vitest", "playwright", "fixture"] }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/*.test.ts" },
+        { "pathPattern": "**/*.spec.ts" }
+      ],
+      "skillFile": "skills/testing-patterns.md"
+    },
+    "security-patterns": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["security", "vulnerability", "encryption", "xss", "injection", "owasp", "csrf", "secret"] }
+      ],
+      "skillFile": "skills/security-patterns.md"
+    },
+    "report-generator": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["report", "summary", "analysis", "audit-report", "incident-report", "verification-report", "status-report"] }
+      ],
+      "skillFile": "skills/report-generator.md"
+    },
+    "project-planner": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["plan", "design", "architect", "new-project", "requirements", "scaffold", "bootstrap", "init"] },
+        { "intent": "start.*project|plan.*system|design.*architecture|bootstrap.*app" }
+      ],
+      "skillFile": "skills/project-planner.md"
+    },
+    "doc-pipeline": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["document", "api-docs", "generate-docs", "tsdoc", "reference-docs", "compliance-docs"] }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/docs/**" },
+        { "pathPattern": "**/README.md" }
+      ],
+      "skillFile": "skills/doc-pipeline.md"
+    },
+    "architecture-pipeline": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["PRD", "ERD", "ARD", "ADR", "architecture-document", "requirements-document", "entity-relationship", "decision-record", "schema-generation"] },
+        { "intent": "generate.*PRD|create.*ERD|architecture.*pipeline|design.*document|requirements.*to.*schema" }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/docs/architecture/**" },
+        { "pathPattern": "**/docs/adr/**" }
+      ],
+      "skillFile": "skills/architecture-pipeline.md"
+    },
+    "swe-agent-patterns": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["swe-agent", "coding-agent", "autonomous-coding", "subagent", "orchestration"] },
+        { "intent": "build.*agent|create.*agent|agent.*pattern|spawn.*subagent" }
+      ],
+      "skillFile": "skills/swe-agent-patterns.md"
+    },
+    "agent-memory": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["hindsight", "agent-memory", "cross-session", "retain", "recall", "reflect"] }
+      ],
+      "skillFile": "skills/agent-memory.md"
+    },
+    "database-optimization": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["query", "index", "partition", "replica", "connection-pool", "N+1", "slow-query"] }
+      ],
+      "skillFile": "skills/database-optimization.md"
+    },
+    "caching-strategies": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["cache", "redis", "CDN", "invalidation", "TTL", "stampede"] }
+      ],
+      "skillFile": "skills/caching-strategies.md"
+    },
+    "search-indexing": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["search", "meilisearch", "elasticsearch", "full-text", "autocomplete", "facet"] }
+      ],
+      "skillFile": "skills/search-indexing.md"
+    },
+    "data-migration": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["migration", "seed", "rollback", "schema-version", "zero-downtime"] }
+      ],
+      "skillFile": "skills/data-migration.md"
+    },
+    "etl-pipelines": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["etl", "pipeline", "airflow", "dbt", "data-quality", "transform"] }
+      ],
+      "skillFile": "skills/etl-pipelines.md"
+    },
+    "message-queues": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["kafka", "sqs", "rabbitmq", "pub/sub", "dead-letter", "backpressure"] }
+      ],
+      "skillFile": "skills/message-queues.md"
+    },
+    "cqrs-event-sourcing": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["cqrs", "event-store", "projection", "saga", "eventual-consistency", "event-sourcing"] }
+      ],
+      "skillFile": "skills/cqrs-event-sourcing.md"
+    },
+    "batch-processing": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["batch", "job-queue", "bullmq", "scheduled", "idempotent", "checkpoint"] }
+      ],
+      "skillFile": "skills/batch-processing.md"
+    },
+    "graphql-patterns": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["graphql", "resolver", "dataloader", "subscription", "federation"] }
+      ],
+      "skillFile": "skills/graphql-patterns.md"
+    },
+    "rate-limiting": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["rate-limit", "throttle", "token-bucket", "sliding-window", "quota"] }
+      ],
+      "skillFile": "skills/rate-limiting.md"
+    },
+    "llm-agent-patterns": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["llm", "prompt", "llm-agent", "tool-calling", "guardrail", "eval"] }
+      ],
+      "skillFile": "skills/llm-agent-patterns.md"
+    },
+    "model-deployment": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["model-serving", "inference", "gpu", "model-registry", "a/b-test"] }
+      ],
+      "skillFile": "skills/model-deployment.md"
+    },
+    "model-evaluation": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["eval", "benchmark", "accuracy", "bias", "regression-test", "model-eval"] }
+      ],
+      "skillFile": "skills/model-evaluation.md"
+    },
+    "rag-patterns": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["rag", "chunking", "embedding", "vector-store", "reranking"] }
+      ],
+      "skillFile": "skills/rag-patterns.md"
+    },
+    "component-architecture": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["component", "atomic-design", "composition", "compound", "accessibility"] }
+      ],
+      "skillFile": "skills/component-architecture.md"
+    },
+    "state-management": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["zustand", "jotai", "tanstack-query", "optimistic", "cache-sync", "state"] }
+      ],
+      "skillFile": "skills/state-management.md"
+    },
+    "frontend-performance": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["web-vitals", "code-splitting", "lazy-load", "bundle", "SSR", "lighthouse"] }
+      ],
+      "skillFile": "skills/frontend-performance.md"
+    },
+    "internationalization": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["i18n", "l10n", "locale", "RTL", "translation", "ICU"] }
+      ],
+      "skillFile": "skills/internationalization.md"
+    },
+    "pwa-patterns": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["pwa", "service-worker", "offline", "push-notification", "installable"] }
+      ],
+      "skillFile": "skills/pwa-patterns.md"
+    },
+    "gitops-deployment": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["gitops", "blue-green", "canary", "argocd", "deploy-strategy"] }
+      ],
+      "skillFile": "skills/gitops-deployment.md"
+    },
+    "service-mesh": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["istio", "linkerd", "mtls", "traffic", "circuit-breaker", "mesh"] }
+      ],
+      "skillFile": "skills/service-mesh.md"
+    },
+    "kubernetes-patterns": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["kubernetes", "k8s", "helm", "operator", "pod", "HPA"] }
+      ],
+      "skillFile": "skills/kubernetes-patterns.md"
+    },
+    "feature-flags": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["feature-flag", "a/b-test", "rollout", "kill-switch", "experiment"] }
+      ],
+      "skillFile": "skills/feature-flags.md"
+    },
+    "email-sms": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["email", "sms", "ses", "sendgrid", "twilio", "template", "bounce"] }
+      ],
+      "skillFile": "skills/email-sms.md"
+    },
+    "file-storage": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["s3", "r2", "presigned-url", "multipart", "cdn", "image-processing"] }
+      ],
+      "skillFile": "skills/file-storage.md"
+    },
+    "oauth-providers": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["oauth", "oidc", "social-login", "pkce", "token-refresh"] }
+      ],
+      "skillFile": "skills/oauth-providers.md"
+    },
+    "webhook-patterns": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["webhook", "retry", "signature", "idempotency", "dead-letter"] }
+      ],
+      "skillFile": "skills/webhook-patterns.md"
+    },
+    "notification-systems": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["notification", "in-app", "push", "preference", "batching"] }
+      ],
+      "skillFile": "skills/notification-systems.md"
+    },
+    "analytics-reporting": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["analytics", "funnel", "cohort", "dashboard", "clickhouse"] }
+      ],
+      "skillFile": "skills/analytics-reporting.md"
+    },
+    "audit-forensics": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["audit-trail", "immutable-log", "forensic", "evidence", "sox"] }
+      ],
+      "skillFile": "skills/audit-forensics.md"
+    },
+    "healthcare-fhir": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["fhir", "hl7", "patient", "encounter", "smart-on-fhir"] }
+      ],
+      "skillFile": "skills/healthcare-fhir.md"
+    },
+    "iot-device-management": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["iot", "mqtt", "telemetry", "ota", "device-twin", "edge"] }
+      ],
+      "skillFile": "skills/iot-device-management.md"
+    },
+    "ux-ui-design": {
+      "type": "guardrail",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        {
+          "keywords": [
+            "design",
+            "ui",
+            "ux",
+            "component",
+            "accessibility",
+            "wcag",
+            "a11y",
+            "responsive",
+            "dark-mode",
+            "design-system",
+            "design-tokens",
+            "frontend-audit"
+          ]
+        },
+        {
+          "intent": "audit.*frontend|review.*design|check.*accessibility|design.*component|ui.*audit"
+        }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/apps/*/src/components/**" },
+        { "pathPattern": "**/apps/*/src/pages/**" },
+        { "pathPattern": "**/apps/*/app/**" }
+      ],
+      "skillFile": "skills/ux-ui-design.md"
+    },
+    "pre-implementation-scoring": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["assess", "score", "complexity", "risk", "pre-implementation", "regulatory risk", "architecture impact", "blast radius", "approach"] },
+        { "intent": "assess.*feature|score.*complexity|evaluate.*risk|before.*implementation" }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/docs/assess/**" }
+      ],
+      "skillFile": "skills/pre-implementation-scoring.md"
+    },
+    "spec-quality-gate": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["gate", "quality gate", "spec review", "spec validation", "readiness check", "implementation readiness", "score spec"] },
+        { "intent": "gate.*spec|validate.*spec|check.*readiness|quality.*gate|score.*spec" }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/docs/assess/**" },
+        { "pathPattern": "**/docs/specs/**" },
+        { "pathPattern": "**/docs/adr/**" }
+      ],
+      "skillFile": "skills/spec-quality-gate.md"
+    },
+    "product-requirements-prompt": {
+      "type": "domain",
+      "enforcement": "suggest",
+      "promptTriggers": [
+        { "keywords": ["PRP", "context packet", "implementation brief", "handoff document", "feature context", "bundled context"] },
+        { "intent": "generate.*PRP|create.*context.*packet|bundle.*context|handoff.*document" }
+      ],
+      "fileTriggers": [
+        { "pathPattern": "**/docs/prp/**" }
+      ],
+      "skillFile": "skills/product-requirements-prompt.md"
+    },
+    "audit-verification": {
+      "type": "guardrail",
+      "enforcement": "block",
+      "promptTriggers": [
+        {
+          "keywords": [
+            "audit",
+            "verify",
+            "compliance-check",
+            "production-readiness",
+            "deep-audit",
+            "security-audit"
+          ]
+        },
+        {
+          "intent": "audit.*platform|check.*production|verify.*deployment|assess.*compliance|deep.*audit"
+        }
+      ],
+      "fileTriggers": [],
+      "skillFile": "skills/audit-verification.md"
+    }
+  }
+}
