@@ -8,7 +8,7 @@ The engine source that used to live here was moved out to keep this
 repo focused on documentation and to preserve a clean intellectual-
 property separation between the Apache-2.0 framework spec (this
 organisation) and the closed-source reference implementation (in the
-private monorepo at `github.com/ReguNav/app`).
+private monorepo (not public)).
 
 ## Layout
 
